@@ -5,7 +5,7 @@ from aiohttp import ClientSession, BasicAuth
 
 class Api:
     def __init__(self, shop_id, sender_id, public_key, private_key, dadata_key, dadata_secret):
-        self.client = ClientSession()
+        self.client = ClientSession(raise_for_status=True)
         self.auth = BasicAuth(public_key, private_key)
         self.base = 'https://cdek.orderadmin.ru/api/'
         self.shop_id = shop_id
